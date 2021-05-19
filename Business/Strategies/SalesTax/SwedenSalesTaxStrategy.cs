@@ -8,25 +8,13 @@ namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax
 {
     class SwedenSalesTaxStrategy : ISalesTaxStrategy
     {
-
-        //var destination = order.ShippingDetails.DestinationCountry.ToLowerInvariant();
-        //var totalPrice = order.TotalPrice;
-
-        //    if (destination == order.ShippingDetails.OriginCountry.ToLowerInvariant())
-        //    {
-        //        return totalPrice* 0.25m;
-        //    }
-
-        //    return 0;
-
-
         public decimal GetTax(Order order)
         {
             decimal totalTax = 0m;
 
             foreach (KeyValuePair<Item,int> item in order.LineItems)
             {
-                totalTax += item.Key.ItemTaxStrategy.GetTaxForItem(item);
+                totalTax += item.Key.GetTax() * item.Value;
 
                 #region switch (item.Key.ItemType)
                 /*

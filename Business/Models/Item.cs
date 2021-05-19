@@ -24,15 +24,7 @@ namespace Strategy_Pattern.Business.Models
 
         public decimal GetTax()
         {
-            switch (ItemType)
-            {
-                case ItemType.Service:
-                case ItemType.Food:
-                case ItemType.Hardware:
-                case ItemType.Literature:
-                default:
-                    return 0m;
-            }
+            return ItemTaxStrategy.GetTaxForItem(this);
         }
 
         

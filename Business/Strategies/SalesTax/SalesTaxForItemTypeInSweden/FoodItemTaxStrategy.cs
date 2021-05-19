@@ -7,9 +7,9 @@ namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForIt
 {
     public class FoodItemTaxStrategy : IItemTaxStrategy
     {
-        public decimal GetTaxForItem(KeyValuePair<Item, int> item)
+        public decimal GetTaxForItem(Item item)
         {
-            return (item.Key.Price * 0.06m) * item.Value;
+            return (item.Price * 0.06m);
         }
     }
 }

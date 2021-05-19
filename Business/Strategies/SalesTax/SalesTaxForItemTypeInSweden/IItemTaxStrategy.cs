@@ -7,6 +7,6 @@ namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForIt
 {
     public interface IItemTaxStrategy
     {
-        public decimal GetTaxForItem(KeyValuePair<Item, int> item);
+        public decimal GetTaxForItem(Item item);
     }
 }
