@@ -1,4 +1,4 @@
-﻿using Strategy_Pattern_First_Look.Business.Strategies.SalesTax;
+﻿using Strategy_Pattern.Business.Strategies.SalesTax;
 using System.Collections.Generic;
 using System.Linq;
 

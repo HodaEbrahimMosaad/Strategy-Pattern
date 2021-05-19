@@ -1,4 +1,4 @@
-﻿using Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden;
+﻿using Strategy_Pattern.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden;
 
 namespace Strategy_Pattern.Business.Models
 {

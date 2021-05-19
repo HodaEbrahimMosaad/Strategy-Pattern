@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax
+namespace Strategy_Pattern.Business.Strategies.SalesTax
 {
     class USAStateSalesTaxStrategy : ISalesTaxStrategy
     {

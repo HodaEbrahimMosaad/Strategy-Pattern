@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden
+namespace Strategy_Pattern.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden
 {
     public class ServiceAndHardwareItemTaxStrategy : IItemTaxStrategy
     {
