@@ -1,4 +1,5 @@
 ﻿using Strategy_Pattern.Business.Models;
+using Strategy_Pattern_First_Look.Business.Strategies.SalesTax;
 using System;
 
 namespace Strategy_Pattern_First_Look
@@ -13,7 +14,8 @@ namespace Strategy_Pattern_First_Look
                 { 
                     OriginCountry = "Sweden",
                     DestinationCountry = "Sweden"
-                }
+                },
+                SalesTaxStrategy = new SwedenSalesTaxStrategy()
             };
             
             order.LineItems.Add(new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1);

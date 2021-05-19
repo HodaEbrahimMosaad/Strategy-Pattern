@@ -8,6 +8,16 @@
 
         public ItemType ItemType { get; set; }
 
+
+        public Item(string id, string name, decimal price, ItemType type)
+        {
+            Id = id;
+            Name = name;
+            Price = price;
+            ItemType = type;
+        }
+
+
         public decimal GetTax()
         {
             switch (ItemType)
@@ -21,12 +31,6 @@
             }
         }
 
-        public Item(string id, string name, decimal price, ItemType type)
-        {
-            Id = id;
-            Name = name;
-            Price = price;
-            ItemType = type;
-        }
+        
     }
 }
