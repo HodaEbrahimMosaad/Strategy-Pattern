@@ -1,4 +1,6 @@
-﻿namespace Strategy_Pattern.Business.Models
+﻿using Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden;
+
+namespace Strategy_Pattern.Business.Models
 {
     public class Item
     {
@@ -7,6 +9,8 @@
         public decimal Price { get; }
 
         public ItemType ItemType { get; set; }
+
+        public IItemTaxStrategy ItemTaxStrategy { get; set; }
 
 
         public Item(string id, string name, decimal price, ItemType type)

@@ -1,4 +1,5 @@
 ﻿using Strategy_Pattern.Business.Models;
+using Strategy_Pattern_First_Look.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,15 +8,49 @@ namespace Strategy_Pattern_First_Look.Business.Strategies.SalesTax
 {
     class SwedenSalesTaxStrategy : ISalesTaxStrategy
     {
+
+        //var destination = order.ShippingDetails.DestinationCountry.ToLowerInvariant();
+        //var totalPrice = order.TotalPrice;
+
+        //    if (destination == order.ShippingDetails.OriginCountry.ToLowerInvariant())
+        //    {
+        //        return totalPrice* 0.25m;
+        //    }
+
+        //    return 0;
+
+
         public decimal GetTax(Order order)
         {
-            var destination = order.ShippingDetails.DestinationCountry.ToLowerInvariant();
-            
-            if (destination == order.ShippingDetails.OriginCountry.ToLowerInvariant())
+            decimal totalTax = 0m;
+
+            foreach (KeyValuePair<Item,int> item in order.LineItems)
             {
-                return order.TotalPrice * 0.25m;
+                totalTax += item.Key.ItemTaxStrategy.GetTaxForItem(item);
+
+                #region switch (item.Key.ItemType)
+                /*
+                switch (item.Key.ItemType)
+                {
+                    case ItemType.Food:
+                        totalTax += (item.Key.Price * 0.06m) * item.Value;
+                        break;
+
+                    case ItemType.Literature:
+                        totalTax += (item.Key.Price * 0.08m) * item.Value;
+                        break;
+
+                    case ItemType.Service:
+                    case ItemType.Hardware:
+                        totalTax += (item.Key.Price * 0.25m) * item.Value;
+                        break;
+                }
+                */
+                #endregion
             }
-            return 0;
+
+            return totalTax;
+
         }
     }
 }
