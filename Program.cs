@@ -1,4 +1,5 @@
 ﻿using Strategy_Pattern.Business.Models;
+using Strategy_Pattern.Business.Strategies.Invoice;
 using Strategy_Pattern.Business.Strategies.SalesTax;
 using Strategy_Pattern.Business.Strategies.SalesTax.SalesTaxForItemTypeInSweden;
 using System;
@@ -16,8 +17,14 @@ namespace Strategy_Pattern
                 {
                     OriginCountry = "Sweden",
                     DestinationCountry = "Sweden"
-                }
+                },
+                InvoiceStrategy = new FileInvoiceStrategy()
             };
+
+
+            order.SelectedPayments.Add(new Payment { PaymentProvider = PaymentProvider.Invoice });
+
+
             //Dictionary<Item, int> item1 = new Dictionary<Item, int>(new Item() { "CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1};
             var item1 = new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature );
             item1.ItemTaxStrategy = new LiteratureItemTaxStrategy();
@@ -29,6 +36,9 @@ namespace Strategy_Pattern
             order.LineItems.Add(item2, 1);
 
             Console.WriteLine(order.GetTax(new SwedenSalesTaxStrategy()));
+
+            order.FinalizeOrder();
+
         }
     }
 }
