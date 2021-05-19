@@ -16,8 +16,7 @@ namespace Strategy_Pattern_First_Look
                 {
                     OriginCountry = "Sweden",
                     DestinationCountry = "Sweden"
-                },
-                SalesTaxStrategy = new SwedenSalesTaxStrategy()
+                }
             };
             //Dictionary<Item, int> item1 = new Dictionary<Item, int>(new Item() { "CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature), 1};
             var item1 = new Item("CSHARP_SMORGASBORD", "C# Smorgasbord", 100m, ItemType.Literature );
@@ -29,7 +28,7 @@ namespace Strategy_Pattern_First_Look
             item2.ItemTaxStrategy = new ServiceAndHardwareItemTaxStrategy();
             order.LineItems.Add(item2, 1);
 
-            Console.WriteLine(order.GetTax());
+            Console.WriteLine(order.GetTax(new SwedenSalesTaxStrategy()));
         }
     }
 }
